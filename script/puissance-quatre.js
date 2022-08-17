@@ -39,7 +39,7 @@ var verifLigne = function(jeton){
   let indice = sousListe.indexOf(jeton);
   sousListeJetons = sousListe.slice(~~(indice/7)*7,~~(indice/7)*7+7);
 
-  let compteur = calculCompteur(sousListeJetons);
+  let compteur = calculCompteur(sousListeJetons, 1);
   verifVictoire(compteur);
 };
 var verifColonne = function(jeton){
@@ -51,12 +51,11 @@ var verifColonne = function(jeton){
     colonne.push(sousListe[i]);
   };
 
-  let compteur = calculCompteur(colonne);
+  let compteur = calculCompteur(colonne, 0);
   verifVictoire(compteur);
 };
+
 var verifDiagonaleDroite = function(jeton){
-  // si modulo 6 = 0, alors c'est à la fin d'une ligne ?
-  // nombre = 6-indice%6 ?
   let indice = sousListe.indexOf(jeton);
   let numeroLigne = ~~(indice/7);
   let numeroColonne = indice - ~~(indice/7)*7;;
@@ -74,18 +73,14 @@ var verifDiagonaleDroite = function(jeton){
 };
 
 
-
-
-
 var placementPossible = function(jeton){
-
 }
 
 
-
-var calculCompteur = function(liste){
+var calculCompteur = function(liste, direction){
   let compteur = []
-  for (let i = 0; i<liste.length-1; i++){
+  console.log(liste);
+  for (let i = 0; i<liste.length-1+direction; i++){
     if (liste[i].getAttribute("jeton") == "jaune"){
       compteur.push('j');
     }
@@ -96,11 +91,15 @@ var calculCompteur = function(liste){
   return compteur;
 }
 var verifVictoire = function(compteur){
+
   compteur = compteur.join('');
+  console.log("-" + compteur);
   if (compteur.indexOf('jjjj') != -1) {
     alert("JAUNE gagne, c'est fini !");
+    document.location.reload();
   }
   else if (compteur.indexOf('rrrr') != -1) {
     alert("ROUGE gagne, c'est fini !");
+    document.location.reload();
   }
 }
