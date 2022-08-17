@@ -1,0 +1,48 @@
+body {
+  background-color : lightgrey;
+}
+
+div#plateau {
+  background-color : #012BE0;
+  border : 5px #0021AD solid;
+  display : grid;
+  grid-template-columns : repeat(7, 1fr);
+  grid-template-rows : repeat(6, 1fr);
+  grid-gap: 5px;
+  max-height: 750px;
+  aspect-ratio: 7/6;
+  margin : auto;
+  padding : 10px;
+
+}
+
+div.case {
+  margin : 10px;
+  text-align: center;
+  aspect-ratio: 1;
+  border-radius : 100%;
+  position: relative;
+  background-color : white;
+  border : 5px white solid;
+}
+
+div.case[jeton="jaune"] {
+  background-color : #F7BC2A;
+  border : 5px #F7BC2A solid;
+  box-shadow : inset -.15em -.25em #EAE5DB, inset .15em .25em rgba(0,0,0,0.28);
+}
+
+
+div.case[jeton="rouge"] {
+  background-color : #FE0001;
+  border : 5px #FE0001 solid;
+  box-shadow : inset -.15em -.25em  #FEB7B6, inset .15em .25em rgba(0,0,0,0.28);
+}
+
+div.case:before {
+  content: '';
+  inset : -.9em ;
+  position: absolute;
+  border-radius : 100%;
+  box-shadow : inset -.15em -.25em rgba(0,0,0,0.28), inset .15em .25em #617AED;
+}
