@@ -19,19 +19,63 @@ var clique = function(){
     tour = "rouge";
   }
   this.removeEventListener('click', clique);
-  verification(this);
-}
+  verifLigne(this);
+  verifColonne(this);
+};
 
-var verification = function(jeton){
-  //verifie si le joueur gagne
+var verifLigne = function(jeton){
+  let listeJetons = document.getElementsByClassName("case");
+  let sousListe = Array.from(listeJetons);
+  let indice = sousListe.indexOf(jeton)
+  sousListe = sousListe.slice(~~(indice/7)*7,~~(indice/7)*7+7)
 
-  var listeJetons = document.getElementsByClassName("case");
-  var sousListe = Array.from(listeJetons);
-  var indice = sousListe.indexOf(jeton) //permet de faire division euclidienne et trouver la sous liste qu'est la ligne où est le jeton
-              //explorer ligne à la recherche de puissance4
-              //FAIRE PAREIL POUR LE HAUT ET LE BAS
-  console.log(indice);
-  /*sousListe = sousListe.slice()
-  var ligne = listeJetons.slice()*/
+  let compteur = [];
+  for (let i = 0; i<sousListe.length; i++){
+    if (sousListe[i].getAttribute("jeton") == "jaune"){
+      compteur.push('j');
+    }
+    else if (sousListe[i].getAttribute("jeton") == "rouge"){
+      compteur.push('r');
+    }
+  }
+  compteur = compteur.join('');
+  if (compteur.indexOf('jjjj') != -1) {
+    alert("ROUGE gagne, c'est fini !");
+  }
+  else if (compteur.indexOf('rrrr') != -1) {
+    alert("ROUGE gagne, c'est fini !");
+  }
+};
 
-}
+
+
+
+var verifColonne = function(jeton){
+  let listeJetons = document.getElementsByClassName("case");
+  let sousListe = Array.from(listeJetons);
+  let indice = sousListe.indexOf(jeton)
+
+  let numeroColonne = indice - ~~(indice/7)*7;
+
+  let colonne = []
+  for(i = numeroColonne; i <= sousListe.length; i += 7){
+    colonne.push(sousListe[i]);
+  };
+
+  let compteur = [];
+  for (let i = 0; i<colonne.length; i++){
+    if (colonne[i].getAttribute("jeton") == "jaune"){
+      compteur.push('j');
+    }
+    else if (colonne[i].getAttribute("jeton") == "rouge"){
+      compteur.push('r');
+    }
+  }
+  compteur = compteur.join('');
+  if (compteur.indexOf('jjjj') != -1) {
+    alert("ROUGE gagne, c'est fini !");
+  }
+  else if (compteur.indexOf('rrrr') != -1) {
+    alert("ROUGE gagne, c'est fini !");
+  }
+};
