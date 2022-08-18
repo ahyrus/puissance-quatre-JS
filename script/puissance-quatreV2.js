@@ -8,7 +8,6 @@ var setupListeners = function(){
 
   let numLigne = -1;
   for (var i=0; i<listeJetons.length; i++){
-    //listeJetons[i].innerHTML = i;
     if (i%7 == 0){
       numLigne ++;
     }
