@@ -66,10 +66,23 @@ var verifDiagonaleDroite = function(jeton){
     debutDiagonale = numeroDiagonale + 1; //??
   }
   else {
-    debutDiagonale = numeroDiagonale + 6*(numeroDiagonale%6) //??
+    debutDiagonale = numeroDiagonale + 6*(numeroDiagonale%6) //??  // (permet aussi de donner fin de premier triangle)
   }
   //boucle MAIS IL FAUT TROUVER CONDITION D'ARRET || trouver comment obtenir le fait que (38-20)/6 = nombre lignes à faire
-  //0 1 2 3 4 5 5 4 3 2 1 0
+
+  // (38-20)/6 = nombre => (finDiagonale-debutDiagonale)/6 = nombre
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+  //!!!! TROUVER FIN DIAGONALE !!!!!
+
 };
 
 
@@ -103,3 +116,9 @@ var verifVictoire = function(compteur){
     document.location.reload();
   }
 }
+
+
+
+//0 1 2 3 4 5 6 7 8 9 10 11
+//1 2 3 4 5 6 6 5 4 3 2  1
+numeroColone-numeroLigne ?
