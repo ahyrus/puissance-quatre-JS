@@ -61,7 +61,7 @@ var ajout = function(){
   verifLigne(i);
   verifDiagonaleDroite(coordonnees);
   verifDiagonaleGauche(coordonnees);
-} //REFAIRE AVEC lastIndexOf() ???
+}
 
 
 
@@ -105,8 +105,7 @@ var verifDiagonaleDroite = function(co){
   verifGagne(diagonale);
 }
 
-//numLigne *7
-//41-x = 7*(diag%6)
+
 var verifDiagonaleGauche = function(co){
   co[0] = 5 - co[0];
   let debutDiagonale = 0;    //cherche le début de la diagonale
@@ -116,7 +115,7 @@ var verifDiagonaleGauche = function(co){
   else {
     debutDiagonale = 41 - 7*((co[0] + co[1])%6);
   }
-  console.log(co[0], co[1], co[0]+co[1], debutDiagonale);
+  
 
   let numLigne = ~~(debutDiagonale/7);
   let numColonne = debutDiagonale%7;
@@ -154,7 +153,6 @@ var verifiPlateauRempli = function(){
   }
 }
 
-//POUR COLONNES : faire for avec plateau[numColonne][i]
 
 //ajout jeton : en bas d'une colonne, donc vérifie si c'est possible
 //verifier si tout plateauJeu rempli => alert() + recharger page
