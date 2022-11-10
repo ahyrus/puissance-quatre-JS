@@ -152,9 +152,3 @@ var verifiPlateauRempli = function(){
     document.location.reload();
   }
 }
-
-
-//ajout jeton : en bas d'une colonne, donc vérifie si c'est possible
-//verifier si tout plateauJeu rempli => alert() + recharger page
-//verifi s'il y a un puisance4 dans 8 directions, annonce le gagnant si oui
-//sinon passe au joueur suivant
